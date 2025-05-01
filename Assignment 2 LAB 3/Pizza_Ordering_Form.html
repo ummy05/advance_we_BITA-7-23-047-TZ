@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Ordering Form</title>
+</head>
+<body>
+    <form action="">
+    <div class="alldata" style="background-color: darkgray;width: fit-content;" >
+    <fieldset style="width: fit-content;">
+        <legend style="text-align: center;">PIZZA ORDER FORM</legend>
+        <fieldset style="width: fit-content;">
+            <legend style="text-align: left;">Delivery Address</legend>
+            <table>
+                <tr>
+                    <td>
+                        <label for="name">Full Name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+                        <label for="phone">Phone:</label><br><br>
+                        <label for="password">Password:</label>
+                    </td>
+                    <td>
+                        <input type="text" placeholder="Full Name"><br><br>
+                        <input type="tel" name="phone" placeholder="Phone"><br><br>
+                        <input type="password" name="password" placeholder="Password">
+                    </td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;<label for="StreetAddress">Street Address:</label>&nbsp;&nbsp;&nbsp;<br><br>
+                        &nbsp;&nbsp;&nbsp;<label for="Email">Email:</label><br><br><br><br>
+                    </td>
+                    <td>
+                        <input type="text" placeholder="Street Address"><br><br>
+                        <input type="email" placeholder="Email"><br><br><br><br>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset style="width: fit-content;">
+            <legend style="text-align: left;">Payment Informatio</legend>
+            <table>
+                <tr>
+                    <td>
+                        <label for="Card Type">Card Type:</label><br><br>
+                        <label for="Name on Card">Name on Card:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                    </td>
+                    <td>
+                        <select name="card" id="">
+                            <option value="">Visa</option>
+                            <option value="">Mastercard</option>
+                            <option value="">Discover</option>
+                        </select><br><br>
+                        <input type="text" placeholder="Name">
+                    </td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;<label for="Card Number">Card Number:</label><br><br><br>
+                    </td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<input type="Number" name="Cardnumber" id="" placeholder="Card Number"><br><br><br>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset style="width: fit-content;">
+            <legend style="text-align: left;">Cusomize Your Pizza</legend>
+            <table>
+                <tr>
+                    <td>
+                        <label for="Pizza size">Pizza size:</label><br><br>
+                        <label for="Spices">Spices</label><br><br>
+                        <label for="Other Requirement">Other Requirement</label><br><br><br><br>
+                    </td>
+                    <td>
+                        <select name="" id="">
+                            <option value="">large</option>
+                            <option value="">medium</option>
+                            <option value="">small</option>
+                        </select><br><br>
+                        <label for="">Black pepper</label>
+                        <input type="checkbox" name="Blackpepper" id=""><br><br>
+                        <textarea name="" id="" cols="22" rows="4" placeholder="Any other      Requirement"></textarea>
+
+
+                    </td>
+                    <td>
+                        <label for="">Quantites:</label><br><br>
+                        <label for="">Bell pepper</label>
+                        <input type="checkbox" name="Bellpepper" id=""><br><br>
+                        <label for="">Meat</label>
+                        <input type="radio" name="" id="">
+                        <label for="">Fish</label>
+                        <input type="radio" name="" id=""><br><br><br><br>
+                    </td>
+                    <td>
+                        <input type="number" name="" id=""><br><br>
+                        <label for="">Mayonnaise</label>
+                        <input type="checkbox" name="Mayonnaise" id=""><br><br>
+                        <label for="">Cow</label>
+                        <input type="radio" name="" id="">
+                        <label for="">Chicken</label>
+                        <input type="radio" name="" id=""><br><br><br><br>
+
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="Clear Order">
+        <input type="submit" value="Place Order">
+    </fieldset>
+</div>
+</form>
+</body>
+</html>
