@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>World Population Percentages</title>
+</head>
+<body>
+  <h2>World Population Percentage Calculator</h2>
+  <pre id="output"></pre>
+
+  <script>
+    // Function Declaration
+    function percentageOfWorld1(population) {
+      return (population / 7900) * 100;
+    }
+
+    // Function Expression
+    const percentageOfWorld2 = function(population) {
+      return (population / 7900) * 100;
+    };
+
+    // Arrow Function
+    const percentageOfWorld3 = (population) => (population / 7900) * 100;
+
+    // Country populations (in millions)
+    const chinaPop = 1441;
+    const indiaPop = 1393;
+    const usaPop = 331;
+
+    // Use percentageOfWorld1
+    const p1 = percentageOfWorld1(chinaPop).toFixed(1);
+    const p2 = percentageOfWorld1(indiaPop).toFixed(1);
+    const p3 = percentageOfWorld1(usaPop).toFixed(1);
+
+    // Use percentageOfWorld2
+    const p4 = percentageOfWorld2(chinaPop).toFixed(1);
+    const p5 = percentageOfWorld2(indiaPop).toFixed(1);
+    const p6 = percentageOfWorld2(usaPop).toFixed(1);
+
+    // Use percentageOfWorld3
+    const p7 = percentageOfWorld3(chinaPop).toFixed(1);
+    const p8 = percentageOfWorld3(indiaPop).toFixed(1);
+    const p9 = percentageOfWorld3(usaPop).toFixed(1);
+
+    // Output to the page
+    const output = `
+        Using percentageOfWorld1:
+        China: ${p1}%
+        India: ${p2}%
+        USA: ${p3}%
+
+        Using percentageOfWorld2:
+        China: ${p4}%
+        India: ${p5}%
+        USA: ${p6}%
+
+        Using percentageOfWorld3:
+        China: ${p7}%
+        India: ${p8}%
+        USA: ${p9}%
+    `;
+
+    document.getElementById("output").textContent = output;
+  </script>
+</body>
+</html>

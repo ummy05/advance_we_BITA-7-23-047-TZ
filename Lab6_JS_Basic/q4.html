@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Sorter</title>
+    <style>
+       
+          body {
+            background-color: #d3d3d3;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-top: 2px solid #333;
+            /* width: 70%; */
+            left: 50;
+            right: 50;
+        }
+        input[type="number"] {
+            width: 50px;
+            margin: 5px;
+            text-align: center;
+        }
+        button {
+            margin: 10px;
+            padding: 5px 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="section">
+        <h3>Input Section</h3>
+        <p>Enter a number in each of the boxes below and then click one of the buttons to sort the numbers:</p>
+        <label>A: <input type="number" id="inputA"></label>
+        <label>B: <input type="number" id="inputB"></label>
+        <label>C: <input type="number" id="inputC"></label><br>
+
+        <button onclick="sortNumbers('asc')">Sort in Ascending Order</button>
+        <button onclick="sortNumbers('desc')">Sort in Descending Order</button>
+    </div>
+
+    <div class="section">
+        <h3>Output Section</h3>
+        <p>The sorted numbers will be placed in the boxes below:</p>
+        <input type="text" id="output1" readonly>
+        <input type="text" id="output2" readonly>
+        <input type="text" id="output3" readonly>
+    </div>
+
+    <script>
+        function sortNumbers(order) {
+            let a = parseFloat(document.getElementById('inputA').value);
+            let b = parseFloat(document.getElementById('inputB').value);
+            let c = parseFloat(document.getElementById('inputC').value);
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert("Please enter valid numbers in all three boxes.");
+                return;
+            }
+
+            let numbers = [a, b, c];
+
+            if (order === 'asc') {
+                numbers.sort((x, y) => x - y);
+            } else if (order === 'desc') {
+                numbers.sort((x, y) => y - x);
+            }
+
+            // Output the sorted numbers
+            document.getElementById('output1').value = numbers[0];
+            document.getElementById('output2').value = numbers[1];
+            document.getElementById('output3').value = numbers[2];
+        }
+    </script>
+</div>
+</body>
+</html>
