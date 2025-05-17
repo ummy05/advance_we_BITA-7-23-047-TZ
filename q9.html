@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>My Country Object</h3>
+  <pre id="output"></pre>
+
+  <script>
+    // Define the object
+    const myCountry = {
+      country: "Finland",
+      capital: "Helsinki",
+      language: "finnish",
+      population: 6, // in millions
+      neighbours: ["Sweden", "Norway", "Russia"],
+
+      // Method to describe the country
+      describe: function() {
+        return `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`;
+      },
+
+      // Method to check if it's an island
+      checkIsland: function() {
+        this.isIsland = this.neighbours.length === 0 ? true : false;
+      }
+    };
+
+    // Log the initial description
+    let output = myCountry.describe();
+
+    // Increase population by 2 million using dot notation
+    myCountry.population += 2;
+
+    // Decrease population by 2 million using bracket notation
+    myCountry["population"] -= 2;
+
+    // Call the describe method again
+    output += `\n\nAfter population changes:\n${myCountry.describe()}`;
+
+    // Call the checkIsland method
+    myCountry.checkIsland();
+
+    // Show if it's an island
+    output += `\n\nIs ${myCountry.country} an island? ${myCountry.isIsland}`;
+
+    // Display results on the page
+    document.getElementById("output").textContent = output;
+  </script>
+</body>
+</html>

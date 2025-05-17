@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Population Percentages</h3>
+  <pre id="output"></pre>
+
+  <script>
+    // Function to calculate population percentage
+    function percentageOfWorld1(pop) {
+      return (pop / 7900) * 100;
+    }
+
+    // Array of 4 population values (in millions)
+    const populations = [1441, 1393, 331, 125]; // China, India, USA, Japan
+
+    // Check if array has 4 elements
+    const hasFour = populations.length === 4;
+
+    // Create array of percentages using percentageOfWorld1
+    const percentages = [
+      percentageOfWorld1(populations[0]).toFixed(1),
+      percentageOfWorld1(populations[1]).toFixed(1),
+      percentageOfWorld1(populations[2]).toFixed(1),
+      percentageOfWorld1(populations[3]).toFixed(1)
+    ];
+
+    // Output
+    const result = `
+Has 4 elements? ${hasFour}
+
+Percentages of world population:
+  China: ${percentages[0]}%
+  India: ${percentages[1]}%
+  USA: ${percentages[2]}%
+  Japan: ${percentages[3]}%
+    `;
+
+    document.getElementById("output").textContent = result;
+  </script>
+</body>
+</html>

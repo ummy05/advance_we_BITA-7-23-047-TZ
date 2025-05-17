@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Send Message</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px;
+      width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 12px;
+      background: black;
+      color: white;
+      border: none;
+      font-size: 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .error {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #f5c6cb;
+      border-radius: 4px;
+    }
+
+    .success {
+      background: #d4edda;
+      color: #155724;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #c3e6cb;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Send Message</h2>
+  <form id="messageForm">
+    <label>Name:</label>
+    <input type="text" id="name">
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+
+    <label>Message:</label>
+    <textarea id="message" rows="4"></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div id="response"></div>
+</div>
+
+<script>
+  document.getElementById("messageForm").addEventListener("submit", submitter);
+
+  function submitter(e) {
+    e.preventDefault(); // Prevent default form submission
+
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const message = document.getElementById("message");
+    const responseDiv = document.getElementById("response");
+
+    let errors = "";
+
+    // Validation
+    if (name.value.trim() === "") {
+      errors += "Name is required.<br>";
+      name.style.borderColor = "red";
+    } else {
+      name.style.borderColor = "#ccc";
+    }
+
+    // if (email.value.trim() === "" || !email.value.includes("@")) {
+    //   errors += "Valid email is required.<br>";
+    //   email.style.borderColor = "red";
+    // } else {
+    //   email.style.borderColor = "#ccc";
+    // }
+
+    if (message.value.trim() === "") {
+      errors += "Message cannot be empty.<br>";
+      message.style.borderColor = "red";
+    } else {
+      message.style.borderColor = "#ccc";
+    }
+
+    // Show errors
+    if (errors) {
+      const errorEl = document.createElement("div");
+      errorEl.className = "error";
+      errorEl.innerHTML = errors;
+      responseDiv.innerHTML = "";
+      responseDiv.appendChild(errorEl);
+
+      setTimeout(() => {
+        errorEl.remove();
+        name.style.borderColor = "#ccc";
+        email.style.borderColor = "#ccc";
+        message.style.borderColor = "#ccc";
+      }, 4000);
+
+      return;
+    }
+
+    // Create data object to send
+    const data = {
+      name: name.value,
+      email: email.value,
+      message: message.value
+    };
+
+    console.log("Sending data to server:", data);
+
+    // Success message
+    const successEl = document.createElement("div");
+    successEl.className = "success";
+    successEl.textContent = "Message sent successfully!";
+    responseDiv.innerHTML = "";
+    responseDiv.appendChild(successEl);
+
+    // Clear form
+    name.value = "";
+    email.value = "";
+    message.value = "";
+
+    setTimeout(() => {
+      successEl.remove();
+    }, 4000);
+  }
+</script>
+
+</body>
+</html>

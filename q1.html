@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Enter Your Name</h2>
+    <input type="text" id="username" placeholder="Your name here">
+    <button id="submitBtn">Submit</button>
+
+    <p id="message"></p>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const name = document.getElementById('username').value.trim();
+            const messageElement = document.getElementById('message');
+
+            if (name.length > 3) {
+                messageElement.textContent = `Welcome, ${name}!`;
+                messageElement.style.color = 'green';
+            } else {
+                messageElement.textContent = 'Name must be more than 3 characters.';
+                messageElement.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
